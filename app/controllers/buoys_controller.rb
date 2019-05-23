@@ -3,7 +3,7 @@ class BuoysController < ApplicationController
   end
 
   def new
-    @buyo = Buoy.new
+    @buoy = Buoy.new
   end
 
   def create
@@ -14,7 +14,7 @@ class BuoysController < ApplicationController
 
   private
 
-  def buyo_params
-    params.require(:Buoy).permit(:name, :photo, :category, :price, :size, :address)
+  def buoy_params
+    params.require(:buoy).permit(:name, :photo, :category, :price, :size, :address)
   end
 end
