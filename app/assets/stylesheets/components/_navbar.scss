@@ -7,8 +7,16 @@
   width: 100vw;
 }
 
+.navbar-lewagon img {
+  filter: invert(100%);
+}
+
 .navbar-lewagon-white {
   background-color: white;
+}
+
+.navbar-lewagon-white img {
+  filter: invert(0%);
 }
 
 .navbar-lewagon .navbar-collapse {
