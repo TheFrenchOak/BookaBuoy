@@ -1,2 +1,9 @@
-<h1>Buoys#index</h1>
-<p>Find me in app/views/buoys/index.html.erb</p>
+<h1>All our buoys </h1>
+
+<div class = "container">
+  <% @buoys.each do |buoy| %>
+      <div>
+        <h2><%= buoy.name %></h2>
+      </div>
+    <% end %>
+</div>
