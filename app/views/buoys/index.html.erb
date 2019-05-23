@@ -1,8 +1,9 @@
 <h1>All our buoys </h1>
 
 <div class = "container">
-  <div>
-    <% @buoys.each do |buoy| %>
-    <h2> buoy.name </h2>
-  </div>
+  <% @buoys.each do |buoy| %>
+      <div>
+        <h2><%= buoy.name %></h2>
+      </div>
+    <% end %>
 </div>
