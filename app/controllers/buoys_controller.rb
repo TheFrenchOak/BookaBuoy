@@ -8,6 +8,12 @@ class BuoysController < ApplicationController
   end
 
   def create
+    @buoy = Buoy.new(buoy_params)
+    if @buoy.save
+      redirect_to buoys_path
+    else
+      render :new
+    end
   end
 
   def show
