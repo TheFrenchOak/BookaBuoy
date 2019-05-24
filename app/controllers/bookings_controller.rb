@@ -4,11 +4,12 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @booking = Booking.new(booking_params)
+    @booking = Booking.new
   end
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.buoy = @booking
       if @booking.save
         redirect_to bookings_path(@booking)
       else

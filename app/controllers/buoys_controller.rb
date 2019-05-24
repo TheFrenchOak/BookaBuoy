@@ -2,7 +2,6 @@ class BuoysController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
   before_action :set_buoy, only: [:show]
 
-
   def index
     @buoys = policy_scope(Buoy)
   end

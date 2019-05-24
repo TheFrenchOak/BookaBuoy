@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to buoys_path , class: "navbar-brand" do %>
   <%= image_tag "https://png.pngtree.com/svg/20170629/34d636389e.svg
 " %>
@@ -19,7 +19,7 @@
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Go to my bookings", bookings_path, class: "dropdown-item" %>
-            <%= link_to "Add a buoy to rent", "#", class: "dropdown-item" %>
+            <%= link_to "Add a buoy to rent", new_buoy_booking_path(current_user), class: "dropdown-item" %>
             <%= link_to "Leave a review", "#", class: "dropdown-item" %>
 
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>

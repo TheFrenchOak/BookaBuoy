@@ -1,5 +1,7 @@
-<div class="container-show">
+<div class="container">
 <h1><%= @buoy.name  %></h1>
-<h1><%= @buoy.bookings.all %></h1>
-<p>Find me in app/views/buoys/show.html.erb</p>
+<p><% @buoy.bookings.each do |booking| %></p>
+<p><% booking.status %></p>
+<p><% end %></p>
+
 </div>

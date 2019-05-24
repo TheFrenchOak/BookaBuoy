@@ -6,8 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
-# require 'open-uri'
+require 'open-uri'
 toto = User.new(email: "g.caasile@gmail.com", password: "123456789")
+diane = User.new(email: "diane.deesse@hotmail.fr", password: "987654321")
 
 buoys_urls = [
   "https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwiRp9OGgLTiAhWKDxQKHdCVA64QjRx6BAgBEAU&url=https%3A%2F%2Fwww.amazon.fr%2FGonflable%25EF%25BC%258CBou%25C3%25A9e-Gonflable-Innoo-Tech-Sp%25C3%25A9ciales%2Fdp%2FB079NR67R3&psig=AOvVaw2prfiWOsZbHf_NthWILJKF&ust=1558781582718957",
@@ -27,11 +28,17 @@ buoys_urls.each do |buoy_photo_url|
     description: Faker::Lorem.sentence,
     user: toto
    )
+
   url = buoy_photo_url
   buoy.remote_photo_url = url
   buoy.save!
   puts "created buoy : #{buoy.name}"
-end
+  booking = Booking.new(start_date: '2015-02-02', end_date: '2015-02-08')
+  booking.user = diane
+  booking.buoy = buoy
+  booking.save!
+  end
+
 
 
 
