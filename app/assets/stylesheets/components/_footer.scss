@@ -42,6 +42,10 @@
   line-height: 1.8;
   text-decoration: none;
   color: $green;
+  &:hover {
+    transition: 0.5s color ease;
+    color: $blue;
+  }
 }
 
 .footer-distributed .footer-company-name{
@@ -127,6 +131,10 @@
 
   margin-right: 3px;
   margin-bottom: 5px;
+    &:hover {
+    transition: 0.5s color ease;
+    color: $blue;
+  }
 }
 
 /* If you don't want the footer to be responsive, remove these media queries */
