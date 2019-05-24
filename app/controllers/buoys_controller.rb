@@ -1,6 +1,6 @@
 class BuoysController < ApplicationController
-    skip_before_action :authenticate_user!, only: [:index]
-
+  skip_before_action :authenticate_user!, only: [:index]
+  before_action :set_buoy, only: [:show]
 
   def index
     @buoys = Buoy.all
@@ -20,7 +20,6 @@ class BuoysController < ApplicationController
   end
 
   def show
-    set_buoy
   end
 
   private
