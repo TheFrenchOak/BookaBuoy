@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/design', to: 'pages#design'
   get '/pages/home', to: 'pages#home'
   resources :buoys, only: [:index, :new, :create, :show] do
-    resources :bookings, only: [:create]
+    resources :bookings, only: [:new, :create]
   end
   resources :bookings, only: [:index, :update]
 end

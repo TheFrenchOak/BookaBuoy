@@ -3,6 +3,10 @@ class BookingsController < ApplicationController
     @bookings = policy_scope(Booking)
   end
 
+  def new
+    @booking = Booking.new(booking_params)
+  end
+
   def create
     @booking = Booking.new(booking_params)
       if @booking.save
