@@ -3,11 +3,12 @@ class BuoysController < ApplicationController
 
 
   def index
-    @buoys = Buoy.all
+    @buoys = policy_scope(Buoy)
   end
 
   def new
     @buoy = Buoy.new
+    authorize @buoy
   end
 
   def create
@@ -17,10 +18,12 @@ class BuoysController < ApplicationController
     else
       render :new
     end
+    authorize @buoy
   end
 
   def show
     set_buoy
+    authorize @buoy
   end
 
   private
