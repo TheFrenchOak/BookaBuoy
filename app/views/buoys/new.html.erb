@@ -1,2 +1,15 @@
-<h1>Buoys#new</h1>
-<p>Find me in app/views/buoys/new.html.erb</p>
+<div class="container">
+  <h1>Add a buoy</h1>
+    <%= simple_form_for @buoy do |f| %>
+      <%= f.input :name %>
+      <%= f.input :color %>
+      <%= f.input :size, collection: Buoy::SIZE %>
+      <%= f.input :category, collection: Buoy::CATEGORY %>
+      <%= f.input :photo %>
+      <%= f.input :price %>
+      <%= f.input :address %>
+      <%= f.input :description %>
+      <%= f.input :photo_cache, as: :hidden %>
+      <%= f.submit "Create a buoy !", class: "btn btn-primary" %>
+    <% end %>
+</div>
