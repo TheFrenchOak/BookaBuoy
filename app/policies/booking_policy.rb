@@ -12,4 +12,12 @@ class BookingPolicy < ApplicationPolicy
   def update?
     true
   end
+
+  def confirm?
+    record.buoy.user == user
+  end
+
+  def reject?
+   record.buoy.user == user
+  end
 end
