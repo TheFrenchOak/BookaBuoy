@@ -1,6 +1,6 @@
 .card-product {
   width: 240px;
-  height: 400px;
+  height: 310px;
   margin: 0 auto;
   border-radius: 24px;
   background-repeat: no-repeat;
@@ -42,12 +42,26 @@
     color: white;
     border-radius: 24px;
   }
+  h3 {
+    font-size: 18px;
+  }
   h5 {
     color: rgb(50,50,50);
-    font-size: 18px;
+    font-size: 14px;
   }
   .fas {
     color: rgb(200, 200, 200);
     margin-right: 8px;
+  }
+}
+
+.btn-book {
+  display: none;
+}
+
+.card-product-description:hover {
+  .btn-book {
+    display: block;
+    margin: 0 auto;
   }
 }
