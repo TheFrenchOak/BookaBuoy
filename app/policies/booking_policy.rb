@@ -1,6 +1,8 @@
 class BookingPolicy < ApplicationPolicy
-  def index?
-    true
+  class Scope < Scope
+    def resolve
+      scope.all
+    end
   end
 
   def create?
@@ -9,10 +11,5 @@ class BookingPolicy < ApplicationPolicy
 
   def update?
     true
-  end
-  class Scope < Scope
-    def resolve
-      scope.all
-    end
   end
 end

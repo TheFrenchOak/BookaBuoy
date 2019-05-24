@@ -1,2 +1,13 @@
-<h1>Bookings#index</h1>
-<p>Find me in app/views/bookings/index.html.erb</p>
+<div class="home-owners-bookings">
+  <div>
+    <h2>Let's check out your booked buoys!</h2>
+  </div>
+
+<div class = "container">
+  <% @bookings.each do |booking| %>
+      <div>
+        <h2><%= booking.status %></h2>
+      </div>
+      <% end %>
+    </div>
+</div>
