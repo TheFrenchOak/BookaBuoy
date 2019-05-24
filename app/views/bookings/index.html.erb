@@ -1,6 +1,35 @@
+
 <div class="container">
+  <div class="home-owners-bookings">
+    <div class="row">
+      <div class="" style="width: 100%;">
+        <h2>Let's check out your booked buoys!</h2>
+      </div>
+      <div class="" style="width: 100%;">
+        <ul>
+        <% @bookings.each do |booking| %>
+          <li>
+            <div class="d-flex" style="justify-content: space-between;">
+              <div class="d-flex" style=" width: 45%; justify-content: space-between;">
+                <h2><%= booking.buoy.name %></h2>
+                <p>Owner id : <%= booking.buoy.user.id %></p>
+                <p>Status : <%= booking.status %></p>
+                <p>ID : <%= booking.id %></p>
 
-<h1>Bookings#index</h1>
-<p>Find me in app/views/bookings/index.html.erb</p>
-
+                  <%= link_to "Confirm" , confirm_booking_path(booking), method: :put %>
+                  <%= link_to "Reject" , reject_booking_path(booking), method: :put %>
+                </div>
+              </div>
+              <h2><%= booking.status %></h2>
+            </div>
+          </li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
+
+
+
+
