@@ -1,0 +1,21 @@
+.form-container {
+  width: 400px;
+  margin: 16px auto;
+  background-color: white;
+  border-radius: 24px;
+  padding: 16px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  text-align: center;
+  a {
+    color: black;
+    &:hover {
+      text-decoration: none;
+      color: rgb(120, 120, 120)
+    }
+  }
+  .btn {
+    color: white;
+    border-radius: 24px;
+    margin-bottom: 16px;
+  }
+}
