@@ -19,6 +19,7 @@ puts "Creating 50 buoys ..."
     category: Buoy::CATEGORY.sample,
     price: (1..15).to_a.sample,
     address: Faker::Address.city,
+    description: Faker::Lorem.sentence,
     user: toto
    )
   puts "created buoy : #{buoy.name}"

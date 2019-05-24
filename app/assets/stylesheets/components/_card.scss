@@ -10,9 +10,9 @@
   margin: 16px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   -webkit-transition: all 200ms ease-in;
-  -webkit-transform: scale(1); 
+  -webkit-transform: scale(1);
   -ms-transition: all 200ms ease-in;
-  -ms-transform: scale(1); 
+  -ms-transform: scale(1);
   -moz-transition: all 200ms ease-in;
   -moz-transform: scale(1);
   transition: all 200ms ease-in;
@@ -22,7 +22,7 @@
     -webkit-transition: all 200ms ease-in;
     -webkit-transform: scale(1.02);
     -ms-transition: all 200ms ease-in;
-    -ms-transform: scale(1.02);   
+    -ms-transform: scale(1.02);
     -moz-transition: all 200ms ease-in;
     -moz-transform: scale(1.1);
     transition: all 200ms ease-in;
@@ -32,6 +32,7 @@
 
 .card-product-description {
   background-color: white;
+  width: 100%;
   font-size: 12px;
   border-radius: 24px;
   position: absolute;
