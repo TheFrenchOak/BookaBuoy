@@ -1,13 +1,12 @@
-<div class="home-owners-bookings">
-  <div>
-    <h2>Let's check out your booked buoys!</h2>
-  </div>
-
-<div class = "container">
-  <% @bookings.each do |booking| %>
-      <div>
-        <h2><%= booking.status %></h2>
-      </div>
-      <% end %>
+<div class="container">
+  <div class="home-owners-bookings">
+    <div>
+      <h2>Let's check out your booked buoys!</h2>
     </div>
+    <% @bookings.each do |booking| %>
+    <div>
+      <h2><%= booking.status %></h2>
+    </div>
+    <% end %>
+  </div>
 </div>

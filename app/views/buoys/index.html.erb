@@ -5,45 +5,30 @@
   </div>
 </div>
 
-<h1>All our buoys </h1>
+<div class="container">
+  <h1>All our buoys </h1>
 
-<div class = "container">
-  <% @buoys.each do |buoy| %>
-      <div>
-        <h2><%= buoy.name %></h2>
-      </div>
-    <% end %>
-</div>
-
-<h2>CARDS</h2>
-<br>
-<h2>CARDS</h2>
-<br>
-<h2>CARDS</h2>
-<br>
-<h2>CARDS</h2>
-<br>
-<h2>CARDS</h2>
-<br>
-<h2>CARDS</h2>
-<br>
-<h2>CARDS</h2>
-<br>
-<h2>CARDS</h2>
-<br>
-<h2>CARDS</h2>
-<br>
-<h2>CARDS</h2>
-<br>
-<h2>CARDS</h2>
-<br>
-<h2>CARDS</h2>
-<br>
-<h2>CARDS</h2>
-<br>
-<h2>CARDS</h2>
-<br>
-<h2>CARDS</h2>
-<br>
-<h2>CARDS</h2>
-<br>
+    <div class="row">
+      <% @buoys.each do |buoy| %>
+        <div class="col-4">
+          <div class="card-product" style="background-image: url(<%= image_url("https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRy_RGFNFS3KnwZiEDFSiX4iI9O0iaLAXyKG24fsCagOS5rf-RKs6ZNJYC7LQ&usqp=CAc") %>)">
+            <div class="card-product-description">
+              <h3><%= buoy.name  %></h3>
+              <h5><%= buoy.address  %></h5>
+              <div class="d-flex justify-content-around">
+                <p><i class="fas fa-paperclip"></i><%= buoy.category %></p>
+                <p><i class="fas fa-ruler-combined"></i><%= buoy.size  %></p>
+                <p><i class="fas fa-tag"></i><%= buoy.price %>€</p>
+              </div>
+              <p>
+                <%= buoy.description %>
+              </p>
+                <%= link_to buoy_path(buoy) do %>
+                <button class="btn-book btn btn-success">Choose me</button>
+                <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>

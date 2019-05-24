@@ -24,8 +24,8 @@ buoys_urls.each do |buoy_photo_url|
     category: Buoy::CATEGORY.sample,
     price: (1..15).to_a.sample,
     address: Faker::Address.city,
-    user: toto,
-    description: "ihsdklgnkodfngpiodfpodfjpgodfj"
+    description: Faker::Lorem.sentence,
+    user: toto
    )
   url = buoy_photo_url
   buoy.remote_photo_url = url
