@@ -5,6 +5,7 @@
   transition: 0.5s background-color ease;
   width: 100vw;
   font-color: white;
+  z-index: 1;
 }
 
 .navbar-lewagon img {
@@ -18,6 +19,7 @@ color: white !important;
 
 .navbar-lewagon-white {
   background-color: white;
+  z-index: 1;
   img {
     filter: invert(0%);
   }

@@ -6,11 +6,11 @@
 </div>
 
 <div class="container">
-  <h1>All our buoys </h1>
+  <h1 class="text-center">All our buoys </h1>
 
     <div class="row">
       <% @buoys.each do |buoy| %>
-        <div class="col-4">
+        <div class="col-12 col-lg-4 col-md-6 col-sm-12">
           <div class="card-product" style="background-image: url(<%= buoy.photo %>)">
             <div class="card-product-description">
               <h3><%= buoy.name  %></h3>
