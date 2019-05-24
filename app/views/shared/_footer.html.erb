@@ -3,21 +3,20 @@
 
       <div class="footer-left">
 
-        <img src="https://png.pngtree.com/svg/20170629/34d636389e.svg
-" alt="Buoy Logo">
+        <img src="https://png.pngtree.com/svg/20170629/34d636389e.svg" alt="Buoy Logo">
         <p class="footer-links">
 
           <%= link_to "Home", buoys_path %>
           ·
-          <%= link_to "Pricing", "https://i.imgflip.com/1li576.jpg" %>
+          <%= link_to "Pricing", "https://i.imgflip.com/1li576.jpg", target:"_blank"  %>
           ·
-          <%= link_to "Careers", "https://candidat.pole-emploi.fr/informations/recherche" %>
+          <%= link_to "Careers", "https://candidat.pole-emploi.fr/informations/recherche", target:"_blank"  %>
           ·
-          <%= link_to "About", "https://www.merriam-webster.com/dictionary/buoy" %>
+          <%= link_to "About", "https://www.merriam-webster.com/dictionary/buoy", target:"_blank"  %>
           ·
-          <%= link_to "FAQ", "https://fr.wikipedia.org/wiki/Foire_aux_questions" %>
+          <%= link_to "FAQ", "https://fr.wikipedia.org/wiki/Foire_aux_questions", target:"_blank"  %>
           ·
-          <%= link_to "Contact", "https://www.pagesjaunes.fr/" %>
+          <%= link_to "Contact", "https://www.pagesjaunes.fr/", target:"_blank"  %>
         </p>
 
         <p class="footer-company-name">BookaBuoy &copy; 2019</p>
@@ -25,20 +24,35 @@
 
       <div class="footer-center">
 
-        <div>
-          <i class="fas fa-map-marker-alt"></i>
-          <p><span>16 Villa Gaudelet </span> Paris, France</p>
-        </div>
+    <div class="middle">
 
+      <div class="middle-part d-flex align-items-center">
+        <div class="justify-content-center">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
         <div>
-           <i class="fas fa-phone"></i>
+          <p>16 Villa Gaudelet, Paris FR</p>
+        </div>
+      </div>
+
+      <div class="middle-part d-flex align-items-center">
+        <div class="justify-content-center">
+          <i class="fas fa-phone"></i>
+        </div>
+        <div>
           <p>+33 1 23 45 67 89</p>
         </div>
+      </div>
 
-        <div>
+      <div class="middle-part d-flex align-items-center">
+        <div class="justify-content-center">
           <i class="fas fa-at"></i>
+        </div>
+        <div>
           <p><a href="mailto:support@company.com">teamdeouf@bookabuoy.com</a></p>
         </div>
+      </div>
+    </div>
 
       </div>
 
@@ -51,10 +65,13 @@
 
         <div class="footer-icons">
 
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-linkedin"></i></a>
-          <a href="#"><i class="fab fa-github"></i></a>
+          <%= link_to "<i class='fab fa-facebook-f'></i>".html_safe, "https://www.facebook.com/", target:"_blank"  %>
+
+          <%= link_to "<i class='fab fa-twitter'></i>".html_safe, "https://twitter.com/", target:"_blank"  %>
+
+          <%= link_to "<i class='fab fa-linkedin'></i>".html_safe, "https://fr.linkedin.com/", target:"_blank"  %>
+
+          <%= link_to "<i class='fab fa-github'></i>".html_safe, "https://github.com/", target:"_blank" %>
 
         </div>
 

@@ -59,8 +59,11 @@
 
 .footer-distributed .footer-center{
   width: 35%;
+  .middle {
+    width: 240px;
+    margin: 0 auto;
+  }
 }
-
 
 .footer-distributed .footer-center i{
   color: $mid-gray;
@@ -73,21 +76,18 @@
 
 .footer-distributed .footer-center p{
   display: inline-block;
-  color: black;
-  vertical-align: middle;
-  margin:0;
-}
-
-.footer-distributed .footer-center p span{
-  display:block;
-  font-weight: normal;
+  color: $gray;
   font-size: 14px;
+  margin:0;
+  font-weight: normal;
   line-height:2;
 }
 
+
 .footer-distributed .footer-center p a{
-  color: black;
+  color: $gray;
   text-decoration: none;;
+  font-size: 14px;
 }
 
 
@@ -95,6 +95,7 @@
 
 .footer-distributed .footer-right{
   width: 20%;
+  color: $gray;
 }
 
 .footer-distributed .footer-company-about{
@@ -107,7 +108,7 @@
 
 .footer-distributed .footer-company-about span{
   display: block;
-  color:  black;
+  color:  $gray;
   font-size: 14px;
   font-weight: bold;
   margin-bottom: 20px;
@@ -139,7 +140,7 @@
 
 /* If you don't want the footer to be responsive, remove these media queries */
 
-@media (max-width: 880px) {
+@media (max-width: 768px) {
 
   .footer-distributed{
     font-family: $body-font;
@@ -159,4 +160,10 @@
     margin-left: 0;
   }
 
+  .middle-part {
+    justify-content: center;
+  }
 }
+
+
+
