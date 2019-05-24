@@ -4,5 +4,6 @@ import { initUpdateNavbarOnScroll } from '../components/navbar';
 if (document.querySelector(".home-banner")) {
   initUpdateNavbarOnScroll();
 } else {
-  document.querySelector('.navbar-lewagon').classList.add('navbar-lewagon-white')
+  document.querySelector('.navbar-lewagon').classList.add('navbar-lewagon-white');
+  document.insertAdjacentHTML(afterbegin, '<div class="navbar-space"></div>')
 }
