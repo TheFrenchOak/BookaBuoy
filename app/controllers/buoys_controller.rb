@@ -1,7 +1,7 @@
 class BuoysController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
   before_action :set_buoy, only: [:show]
-
+  before_action :set_booking, only: [:show]
 
   def index
     @buoys = policy_scope(Buoy)
@@ -36,5 +36,9 @@ class BuoysController < ApplicationController
 
   def set_buoy
     @buoy = Buoy.find(params[:id])
+  end
+
+  def set_booking
+    @booking = Booking.new
   end
 end
