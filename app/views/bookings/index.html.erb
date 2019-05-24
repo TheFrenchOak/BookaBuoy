@@ -1,12 +1,54 @@
-<div class="container">
-  <div class="home-owners-bookings">
-    <div>
-      <h2>Let's check out your booked buoys!</h2>
-    </div>
-    <% @bookings.each do |booking| %>
-    <div>
-      <h2><%= booking.status %></h2>
-    </div>
-    <% end %>
+<div class="home-banner">
+  <div>
+  <h2>Bored at the pool ? Don't forget the most important tool!</h2>
+  <h1>Book a Buoy! </h1>
   </div>
 </div>
+
+<div class="container">
+  <div class="home-owners-bookings">
+    <div class="row">
+      <div class="" style="width: 100%;">
+        <h2>Let's check out your booked buoys!</h2>
+      </div>
+      <div class="" style="width: 100%;">
+        <% @bookings.each do |booking| %>
+          <div class="d-flex" style="justify-content: space-between;">
+            <div class="d-flex" style=" width: 45%; justify-content: space-between;">
+              <h2><%= booking.buoy.name %></h2>
+              <div class="btn btn-success"> OK</div>
+            </div>
+            <h2><%= booking.status %></h2>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!--
+          <div class="card-product" style="background-image: url(<%#= image_url("https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRy_RGFNFS3KnwZiEDFSiX4iI9O0iaLAXyKG24fsCagOS5rf-RKs6ZNJYC7LQ&usqp=CAc") %>)">
+            <div class="card-product-description">
+              <h3><%#= buoy.name  %></h3>
+              <h5><%#= buoy.address  %></h5>
+              <div class="d-flex justify-content-around">
+                <p><i class="fas fa-paperclip"></i><%#= buoy.category %></p>
+                <p><i class="fas fa-ruler-combined"></i><%#= buoy.size  %></p>
+                <p><i class="fas fa-tag"></i><%#= buoy.price %>€</p>
+              </div>
+              <p>
+                <%#= buoy.description %>
+              </p>
+                <%#= link_to buoy_path(buoy) do %>
+                <button class="btn-book btn btn-success">Choose me</button>
+                <%# end %>
+            </div>
+          </div>
+        </div>
+      <%# end %>
+    </div>
+  </div>
+ -->
