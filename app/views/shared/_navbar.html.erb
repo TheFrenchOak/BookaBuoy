@@ -1,13 +1,11 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-lewagon">
   <%= link_to buoys_path , class: "navbar-brand" do %>
-  <%= image_tag "https://png.pngtree.com/svg/20170629/34d636389e.svg
-" %>
+    <%= image_tag("logo.png", id: "navbar-logo") %>
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
@@ -17,7 +15,8 @@
         </li>
         <li class="nav-item dropdown">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" >
             <%= link_to "Go to my bookings", bookings_path, class: "dropdown-item" %>
 
             <%= link_to "Add a buoy to rent", new_buoy_path, class: "dropdown-item" %>

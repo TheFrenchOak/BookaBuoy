@@ -1,17 +1,35 @@
 .home-banner {
   background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1534854638093-bada1813ca19?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80');
   background-size: cover;
-  height: 100vh;
+  background-position: center;
+  height: 70vh;
   text-align: center;
-  padding-top: 40vh;
+  padding-top: 30vh;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   h1 {
-    font-size: 120px;
+    font-size: 100px;
     font-weight: 700;
   }
-  p {
-    font-size: 80px;
+  h2 {
+    font-size: 32px;
     font-weight: 400;
   }
+}
+
+
+
+@media (max-width: 768px) {
+
+  .home-banner {
+   h1 {
+    font-size: 80px;
+    font-weight: 700;
+    }
+  h2 {
+    font-size: 24px;
+    font-weight: 400;
+    }
+  }
+
 }
