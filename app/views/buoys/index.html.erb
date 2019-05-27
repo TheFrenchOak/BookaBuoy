@@ -5,9 +5,8 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container pt-4">
   <h1 class="text-center">All our buoys </h1>
-
     <div class="row">
       <% @buoys.each do |buoy| %>
         <div class="col-12 col-lg-4 col-md-6 col-sm-12">
@@ -31,4 +30,14 @@
         </div>
       <% end %>
     </div>
+
+  <div class="main-map mt-5">
+    <div
+      id="map"
+      style="width: 100%;
+      height: 400px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    ></div>
   </div>
+</div>
