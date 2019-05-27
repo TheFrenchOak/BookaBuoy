@@ -1,38 +1,46 @@
 <body style="background-color: white;">
 
-<div class="home-banner">
-  <div>
-  <h2>Bored at the pool ? Don't forget the most important tool!</h2>
-  <h1>Book a Buoy! </h1>
-  </div>
-</div>
-
-<div class="container">
-  <h1 class="text-center">All our buoys </h1>
-
-    <div class="row">
-      <% @buoys.each do |buoy| %>
-        <div class="col-12 col-lg-4 col-md-6 col-sm-12">
-          <div class="card-product" style="background-image: url(<%= buoy.photo %>)">
-            <div class="card-product-description">
-              <h3><%= buoy.name  %></h3>
-              <h5><%= buoy.address  %></h5>
-              <div class="d-flex justify-content-around">
-                <p><i class="fas fa-paperclip"></i><%= buoy.category %></p>
-                <p><i class="fas fa-ruler-combined"></i><%= buoy.size  %></p>
-                <p><i class="fas fa-tag"></i><%= buoy.price %>€</p>
-              </div>
-              <p>
-                <%= buoy.description %>
-              </p>
-                <%= link_to buoy_path(buoy) do %>
-                <button class="btn-book btn btn-success">Choose me</button>
-                <% end %>
-            </div>
-          </div>
-        </div>
-      <% end %>
+  <div class="home-banner">
+    <div>
+    <h2>Bored at the pool ? Don't forget the most important tool!</h2>
+    <h1>Book a Buoy! </h1>
     </div>
   </div>
 
+  <div class="container pt-4">
+    <h1 class="text-center">All our buoys </h1>
+      <div class="row">
+        <% @buoys.each do |buoy| %>
+          <div class="col-12 col-lg-4 col-md-6 col-sm-12">
+            <div class="card-product" style="background-image: url(<%= buoy.photo %>)">
+              <div class="card-product-description">
+                <h3><%= buoy.name  %></h3>
+                <h5><%= buoy.address  %></h5>
+                <div class="d-flex justify-content-around">
+                  <p><i class="fas fa-paperclip"></i><%= buoy.category %></p>
+                  <p><i class="fas fa-ruler-combined"></i><%= buoy.size  %></p>
+                  <p><i class="fas fa-tag"></i><%= buoy.price %>€</p>
+                </div>
+                <p>
+                  <%= buoy.description %>
+                </p>
+                  <%= link_to buoy_path(buoy) do %>
+                  <button class="btn-book btn btn-success">Choose me</button>
+                  <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+    <div class="main-map mt-5">
+      <div
+        id="map"
+        style="width: 100%;
+        height: 400px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    </div>
+  </div>
 </body>
