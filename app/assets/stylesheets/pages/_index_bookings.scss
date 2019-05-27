@@ -5,9 +5,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-  padding-left: 70px;
   width: auto;
-  padding-right:20px;
   border-radius: 24px;
 }
 
@@ -28,6 +26,10 @@
 
 .buttons{
   justify-content: space-between;
+  .btn {
+    color: white;
+    border-radius: 24px;
+  }
 }
 
 .list-box{
