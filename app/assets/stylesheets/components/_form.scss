@@ -41,14 +41,14 @@
   }
 }
 
-.form-container-medium {
-  width: 95%;
-  margin: 16px auto;
+.form-container-small {
+  width: 100%;
+  margin-top: 16px;
+  font-size: 12px;
   background-color: white;
-  border-radius: 24px;
   padding: 16px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   text-align: center;
+  display: flex;
   a {
     color: black;
     &:hover {

@@ -1,33 +1,56 @@
 <div class="container">
   <div class="home-owners-bookings">
     <div class="row">
-      <div class="" style="width: 100%;">
-        <h2>Let's check out your booked buoys!</h2>
+      <div class="list-box">
+        <h2>Remember to validate your reservations requests!</h2>
       </div>
-      <div class="" style="width: 100%;">
-        <ul>
-        <% @bookings.each do |booking| %>
-          <li>
-            <div class="d-flex" style="justify-content: space-between;">
-              <div class="d-flex" style=" width: 45%; justify-content: space-between;">
-                <h2><%= booking.buoy.name %></h2>
-                <p>Owner id : <%= booking.buoy.user.id %></p>
-                <p>Status : <%= booking.status %></p>
-                <p>ID : <%= booking.id %></p>
-
-                  <%= link_to "Confirm" , confirm_booking_path(booking), method: :put %>
-                  <%= link_to "Reject" , reject_booking_path(booking), method: :put %>
+      <div class="card-booking" style="width: 100%;">
+        <div class="" style="width: 100%;">
+          <ul class="list-unstyled">
+            <% @bookings_owner.each do |booking| %>
+              <li>
+                <div class="d-flex align-items-center">
+                  <h2 style="width: 40%;"><%= booking.buoy.name %></h2>
+                  <div class="" style="width: 30%">
+                   <p class="mb-0">Status : <%= booking.status %></p>
+                  </div>
+                  <div class="buttons d-flex">
+                    <%= link_to "Confirm" , confirm_booking_path(booking), method: :put, class: "btn btn-success margin-btn" %>
+                    <%= link_to "Reject" , reject_booking_path(booking), method: :put, class: "btn btn-danger margin-btn" %>
+                  </div>
                 </div>
-              </div>
-              <h2><%= booking.status %></h2>
-            </div>
-          </li>
-        <% end %>
-        </ul>
+               </li>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
-</div>
+
+  <div class="home-renter-bookings">
+    <div class="row">
+      <div class="list-box" style="width: 100%;">
+        <h2>Let's check out your rented buoys!</h2>
+      </div>
+      <div class="card-booking" style="width: 100%;">
+        <div class="" style="width: 100%;">
+          <ul class="list-unstyled">
+            <% @bookings.each do |booking| %>
+              <li>
+                  <div class="d-flex" style="justify-content: space-between;">
+                    <h2 style="width: 40%;"><%= booking.buoy.name %></h2>
+                    <div class="" style="width: 30%">
+                      <p class="mb-0">Status : <%= booking.status %></p>
+                      <p class="mb-0">Booking ID : <%= booking.id %></p>
+                    </div>
+                  </div>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 
