@@ -1,15 +1,15 @@
 class BookingPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.select { |booking| booking.user == user }
+    end
+
+    def owner
+      scope.select { |booking| booking.buoy.user == user }
     end
   end
 
   def create?
-    true
-  end
-
-  def update?
     true
   end
 
@@ -18,6 +18,6 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def reject?
-   record.buoy.user == user
+    record.buoy.user == user
   end
 end

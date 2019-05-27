@@ -2,7 +2,8 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:confirm, :reject]
 
   def index
-    @bookings = policy_scope(Booking).order(id: :asc)
+    @bookings = policy_scope(Booking)
+    @bookings_owner = BookingPolicy::Scope.new(current_user, Booking).owner
   end
 
   def new
