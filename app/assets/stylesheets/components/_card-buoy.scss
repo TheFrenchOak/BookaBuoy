@@ -1,3 +1,7 @@
+.card-buoy-container{
+  width: 100%;
+}
+
 .card-buoy {
   overflow: hidden;
   background: white;
@@ -6,7 +10,7 @@
 }
 
 .card-buoy > img {
-  height: 50%;
+  height: 90%;
   width: 100%;
   object-fit: cover;
 }
@@ -25,6 +29,7 @@
 
 
 .card-buoy .card-buoy-infos {
+  height: 10%;
   padding: 16px;
   display: flex;
   justify-content: space-between;
