@@ -67,3 +67,14 @@
     margin: 0 auto;
   }
 }
+
+#owner-tag {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  color: white;
+  background-color: darkorange;
+  font-size: 12px;
+  border-radius: 4px;
+  padding: 4px; 
+}
