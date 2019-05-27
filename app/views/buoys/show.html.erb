@@ -10,17 +10,6 @@
         <h2 class="card-buoy-pricing"><%= @buoy.price %>€</h2>
         <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="card-buoy-user avatar-bordered"/>
       </div>
-      <div class="bookabuoy">
-        <div class="form-container-medium">
-          <%= simple_form_for [@buoy, @booking] do |f| %>
-            <%= f.input_field :user_id, value: current_user.id, type:"hidden" %>
-            <%= f.input_field :buoy_id, value: @buoy.id, type:"hidden" %>
-            <%= f.input :start_date, as: :date, html5: true %>
-            <%= f.input :end_date, as: :date, html5: true %>
-            <%= f.submit "Book it!", class: "btn btn-success" %>
-          <% end %>
-        </div>
-      </div>
     </div>
 
     <div class="card-buoy-map">
@@ -30,15 +19,24 @@
       <div
         id="map"
         style="width: 100%;
-        height: 600px;
-        background-image: url(https://www.google.com/maps/about/images/mymaps/mymaps-desktop-16x9.png);
-        background-repeat: no-repeat;
-        background-position: right top;
-        background-size: cover;
-        border-bottom-right-radius: 24px;
-        border-bottom-left-radius: 24px;"
+        height: 100%;"
+        data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
       >
+      </div>
+
+      <div class="bookabuoy">
+        <div class="form-container-small d-flex justify-content-around">
+          <%= simple_form_for [@buoy, @booking] do |f| %>
+            <%= f.input_field :user_id, value: current_user.id, type:"hidden" %>
+            <%= f.input_field :buoy_id, value: @buoy.id, type:"hidden" %>
+            <div class="row">
+            <%= f.input :start_date, as: :date, html5: true %>
+            <%= f.input :end_date, as: :date, html5: true %>
+            </div>
+            <%= f.submit "Book it!", class: "btn btn-success" %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
