@@ -16,7 +16,7 @@ class BuoyPolicy < ApplicationPolicy
   end
   class Scope < Scope
     def resolve
-      scope.select { |buoy| buoy.user != user }
+      scope.where.not(latitude: nil, longitude: nil).select { |buoy| buoy.user != user }
     end
   end
 end

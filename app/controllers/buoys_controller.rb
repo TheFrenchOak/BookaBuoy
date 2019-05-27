@@ -5,6 +5,14 @@ class BuoysController < ApplicationController
 
   def index
     @buoys = policy_scope(Buoy)
+    @markers = @buoys.map do |buoy|
+      {
+        lat: buoy.latitude,
+        lng: buoy.longitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { buoy: buoy }),
+        image_url: helpers.asset_url('inflatable.svg')
+      }
+    end
   end
 
   def new
