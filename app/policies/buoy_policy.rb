@@ -16,7 +16,7 @@ class BuoyPolicy < ApplicationPolicy
   end
   class Scope < Scope
     def resolve
-      scope.all
+      scope.select { |buoy| buoy.user != user }
     end
   end
 end
