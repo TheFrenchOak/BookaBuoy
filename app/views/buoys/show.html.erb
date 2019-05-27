@@ -1,4 +1,5 @@
 <div class="container">
+  <h2 class="caption p-3">All you need to know about this buoy:</h2>
  <div class="d-flex flex-row">
     <div class="card-buoy">
       <%= cl_image_tag @buoy.photo %>
@@ -25,7 +26,7 @@
 
     <div class="card-buoy-map">
       <div class="card-buoy-address">
-        <p><strong>Your buoy's address:</strong><br><%= @buoy.address %></p>
+        <h2>Your buoy's location:</h2><br><%= @buoy.address %></p>
       </div>
       <div
         id="map"
