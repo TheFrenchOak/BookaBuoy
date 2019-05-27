@@ -1,7 +1,7 @@
 <div class="container">
   <div class="home-owners-bookings">
     <div class="row">
-      <div class="list-box">
+      <div class="list-box text-center mt-1 mb-3">
         <h2>Remember to validate your reservations requests!</h2>
       </div>
       <div class="card-booking" style="width: 100%;">
@@ -9,17 +9,17 @@
           <ul class="list-unstyled">
             <% @bookings_owner.each do |booking| %>
               <li>
-                <div class="d-flex align-items-center">
-                  <h2 style="width: 40%;"><%= booking.buoy.name %></h2>
-                  <div class="" style="width: 30%">
-                   <p class="mb-0">Status : <%= booking.status %></p>
+                <div class="d-flex align-items-center justify-content-around">
+                  <h2><%= booking.buoy.name %></h2>
+                  <div>
+                    <p>Status : <%= booking.status %></p>
                   </div>
                   <div class="buttons d-flex">
                     <%= link_to "Confirm" , confirm_booking_path(booking), method: :put, class: "btn btn-success margin-btn" %>
                     <%= link_to "Reject" , reject_booking_path(booking), method: :put, class: "btn btn-danger margin-btn" %>
                   </div>
                 </div>
-               </li>
+              </li>
             <% end %>
           </ul>
         </div>
@@ -29,7 +29,7 @@
 
   <div class="home-renter-bookings">
     <div class="row">
-      <div class="list-box" style="width: 100%;">
+      <div class="list-box text-center mt-5 mb-3" style="width: 100%;">
         <h2>Let's check out your rented buoys!</h2>
       </div>
       <div class="card-booking" style="width: 100%;">
@@ -37,12 +37,12 @@
           <ul class="list-unstyled">
             <% @bookings.each do |booking| %>
               <li>
-                  <div class="d-flex" style="justify-content: space-between;">
-                    <h2 style="width: 40%;"><%= booking.buoy.name %></h2>
-                    <div class="" style="width: 30%">
-                      <p class="mb-0">Status : <%= booking.status %></p>
-                      <p class="mb-0">Booking ID : <%= booking.id %></p>
-                    </div>
+                  <div class="d-flex align-items-center justify-content-around">
+                    <h2><%= booking.buoy.name %></h2>
+                      <p>Status: <%= booking.status %></p>
+                      <p>Start date: <%= booking.start_date %></p>
+                      <p>End date: <%= booking.end_date %></p>
+                      <p>Booking ID: <%= booking.id %></p>
                   </div>
               </li>
             <% end %>
