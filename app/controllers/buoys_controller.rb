@@ -34,6 +34,13 @@ class BuoysController < ApplicationController
 
   def show
     authorize @buoy
+    @marker = [
+      {
+        lat: @buoy.latitude,
+        lng: @buoy.longitude,
+        image_url: helpers.asset_url('inflatable.svg')
+      }
+    ]
   end
 
   private
