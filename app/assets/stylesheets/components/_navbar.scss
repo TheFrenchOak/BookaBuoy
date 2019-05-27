@@ -16,7 +16,9 @@
 color: white !important;
 }
 
-
+.navbar-toggler {
+  border: none;
+}
 .navbar-lewagon-white {
   background-color: white;
   z-index: 1;
@@ -25,6 +27,10 @@ color: white !important;
   }
   .nav-link {
     color: black !important;
+  }
+  .navbar-toggler {
+    color: black !important;
+    border: none;
   }
 }
 
@@ -38,3 +44,21 @@ color: white !important;
 .navbar-space {
   height: 64px;
 }
+
+
+@media (max-width: 768px) {
+
+  .dropdown-menu {
+    display: block;
+    float: right !important;
+    width: 50%;
+  }
+  .nav-link {
+    display:none !important;
+  }
+  #navbarDropdown {
+    display:none !important;
+  }
+}
+
+
