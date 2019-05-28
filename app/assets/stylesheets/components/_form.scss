@@ -74,3 +74,23 @@
     width: 100%;
   }
 }
+
+.search-form {
+  width: 600px;
+  margin: 0 auto; 
+  .input-search {
+    border-top-left-radius: 24px;
+    border-bottom-left-radius: 24px;
+  }
+  .btn-search {
+    background-color: white;
+    color: $blue;
+    border-top-right-radius: 24px;
+    border-bottom-right-radius: 24px;
+    &:hover {
+      background-color: rgba(255,255,255,0.4);
+      color:white;
+      border: 1px, solid, white;
+    }
+  }
+}

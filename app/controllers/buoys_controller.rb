@@ -5,6 +5,13 @@ class BuoysController < ApplicationController
 
   def index
     @buoys = policy_scope(Buoy)
+
+    if params[:query].present?
+      @buoys = Buoy.search_by_name_description_and_address("%#{params[:query]}%")
+    else
+      @buoys
+    end
+
     @markers = @buoys.map do |buoy|
       {
         lat: buoy.latitude,
