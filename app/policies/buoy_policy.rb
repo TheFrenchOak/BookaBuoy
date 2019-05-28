@@ -1,8 +1,4 @@
 class BuoyPolicy < ApplicationPolicy
-  def index?
-    true
-  end
-
   def new?
     create?
   end
@@ -14,9 +10,22 @@ class BuoyPolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def update?
+    record.user == user
+  end
+
+  def edit?
+    update?
+  end
+
+  def destroy?
+    record.user == user
+  end
+
   class Scope < Scope
     def resolve
-      scope.where.not(latitude: nil, longitude: nil)
+      scope.all
     end
   end
 end

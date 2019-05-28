@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title> All of my buoys! </title>
+    <meta name="description" content=" Checking out all of my buoys!">
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <div class="container">
+
+        <div class="row">
+          <% @mybuoys.each do |buoy| %>
+            <div class="mybuoy">
+              <img src="<%= buoy.photo.url %>" alt="mybuoy">
+              <div class="description">
+                <h3><%= buoy.name %></h3>
+                <h3><%= buoy.color %></h3>
+                <h3><%= buoy.size %></h3>
+                <h3><%= buoy.category %></h3>
+                <h3><%= buoy.address %></h3>
+                <h3><%= buoy.description %></h3>
+                <h3><%= buoy.price %></h3>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+    </div>
+
+  </body>
+</html>

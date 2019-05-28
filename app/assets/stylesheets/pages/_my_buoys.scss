@@ -1,0 +1,24 @@
+.mybuoy{
+  display:flex;
+  width: 500px;
+  height: 250px;
+  background: white;
+  padding: 10px;
+  margin: 10px auto;
+  border-radius: 24px;
+  overflow:hidden;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  align-items: center;
+  img {
+    width: 200px;
+    height: 100%;
+  }
+  .description {
+    display: inline-block;
+    padding-right: 30px;
+    h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;}
+    }
+}

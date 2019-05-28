@@ -1,10 +1,10 @@
 class BuoysController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
-  before_action :set_buoy, only: [:show]
+  before_action :set_buoy, only: [:show, :edit, :update, :destroy]
   before_action :set_booking, only: [:show]
 
   def index
-    @buoys = policy_scope(Buoy)
+    @buoys = policy_scope(Buoy).where.not(latitude: nil, longitude: nil)
     @markers = @buoys.map do |buoy|
       {
         lat: buoy.latitude,
@@ -41,6 +41,21 @@ class BuoysController < ApplicationController
         image_url: helpers.asset_url('inflatable.svg')
       }
     ]
+  end
+
+  def update
+  end
+
+  def edit
+  end
+
+  def destroy
+    @buoys.destroy
+    redirect_to buoys_path
+  end
+
+  def mybuoys
+    @mybuoys = policy_scope(Buoy).where(user: current_user)
   end
 
   private

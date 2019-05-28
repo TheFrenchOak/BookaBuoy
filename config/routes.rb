@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root to: 'buoys#index'
   get '/design', to: 'pages#design'
   get '/pages/home', to: 'pages#home'
-  resources :buoys, only: [:index, :new, :create, :show] do
+  get '/mybuoys', to: 'buoys#mybuoys'
+
+  resources :buoys, only: [:index, :new, :create, :show, :update, :destroy] do
     resources :bookings, only: [:new, :create]
       end
   resources :bookings, only: [:index ]
