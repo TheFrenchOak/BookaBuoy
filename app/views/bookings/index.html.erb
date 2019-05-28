@@ -25,6 +25,7 @@
               <th>Status</th>
               <th>From</th>
               <th>To</th>
+              <th>Price</th>
             </tr>
             <% @bookings_owner.each do |booking| %>
               <tr class="text-center">
@@ -33,6 +34,7 @@
                 <td><%= booking.status %></td>
                 <td><%= booking.start_date %></td>
                 <td><%= booking.end_date %></td>
+                <td><%= (booking.end_date - booking.start_date).to_i * booking.buoy.price %>,00 €</td>
                 <td>
                   <div class="d-flex justify-content-center">
                     <%= link_to "Confirm" , confirm_booking_path(booking), method: :put, class: "btn btn-success margin-btn btn-radius" %>
@@ -61,29 +63,39 @@
         <h2> Your own reservations:</h2>
       </div>
       <div class="card-booking">
-        <table width=100%>
-          <tr class="text-center">
-            <th>Buoy name</th>
-            <th>Photo</th>
-            <th>Status</th>
-            <th>From</th>
-            <th>To</th>
-            <th>Id</th>
-          </tr>
-            <% @bookings.each do |booking| %>
-              <tr class="text-center">
-                <td><%= booking.buoy.name %></td>
-                <td><%= cl_image_tag booking.buoy.photo, width: 50, height: 50, crop: :thumb, radius: 'max', gravity: 'auto' %></td>
-                <td><%= booking.status %></td>
-                <td><%= booking.start_date %></td>
-                <td><%= booking.end_date %></td>
-                <td><%= booking.id %></td>
-                <td>
-                <%= link_to "Rate", new_booking_review_path(booking), { class: "btn btn-success btn-radius"} %>
-                </td>
-              </tr> 
-            <% end %>
-        </table>
+        <% if @bookings.empty? %>
+          <div class="text-center w-100">
+            <p><i>Oops, you don't have any reservation for the moment...</i></p>
+            <p><i>Don't hesitate to add betters descriptions to your buoys!</i></p>
+            <%= link_to "See my&nbsp;&nbsp;<i class='far fa-life-ring'></i>".html_safe, mybuoys_path, class: "btn btn-success btn-radius" %>
+          </div>
+        <% else %>
+          <table width=100%>
+            <tr class="text-center">
+              <th>Buoy name</th>
+              <th>Photo</th>
+              <th>Status</th>
+              <th>From</th>
+              <th>To</th>
+              <th>Price</th>
+            </tr>
+              <% @bookings.each do |booking| %>
+                <tr class="text-center">
+                  <td><%= booking.buoy.name %></td>
+                  <td><%= cl_image_tag booking.buoy.photo, width: 50, height: 50, crop: :thumb, radius: 'max', gravity: 'auto' %></td>
+                  <td><%= booking.status %></td>
+                  <td><%= booking.start_date %></td>
+                  <td><%= booking.end_date %></td>
+                  <td><%= (booking.end_date - booking.start_date).to_i * booking.buoy.price %>,00 €</td>
+                  <% if booking.end_date < Date.today %>
+                    <td>
+                    <%= link_to "Rate", new_booking_review_path(booking), { class: "btn btn-success btn-radius"} %>
+                    </td>
+                  <% end %>
+                </tr> 
+              <% end %>
+          </table>
+        <% end %>
       </div>
 
     </div>
