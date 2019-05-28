@@ -1,40 +1,44 @@
 <div class="container">
   <h2 class="caption p-3">All you need to know about this buoy:</h2>
- <div class="card-buoy-container d-flex flex-row">
-    <div class="card-buoy">
-      <%= cl_image_tag @buoy.photo %>
-      <div class="card-buoy-infos">
-        <div>
-          <h2><%= @buoy.name  %></h2>
-          <p><%= @buoy.description  %></p>
+
+  <div class="card-buoy-container justify-content-between">
+    <div class="row">
+
+      <div class="card-buoy col-sm-12 col-md-12 col-lg-7 col-xl-7">
+        <%= cl_image_tag @buoy.photo, height: 400, crop: :fill %>
+        <div class="card-buoy-description align-items-center">
+          <h3><%= @buoy.name  %></h3>
+          <div class="d-flex justify-content-around">
+            <p><i class="fas fa-paperclip"></i><%= @buoy.category %></p>
+            <p><i class="fas fa-ruler-combined"></i><%= @buoy.size  %></p>
+            <p><i class="fas fa-tag"></i><%= @buoy.price %>€</p>
+          </div>
+          <p>
+            <%= @buoy.description %>
+          </p>
         </div>
-        <h2 class="card-buoy-pricing"><%= @buoy.price %>€</h2>
-        <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="card-buoy-user avatar-bordered"/>
-      </div>
-    </div>
-
-    <div class="card-buoy-map">
-      <div class="card-buoy-address">
-        <h2>Your buoy's location:</h2><br><%= @buoy.address %></p>
-      </div>
-      <div
-        id="map"
-        style="width: 100%;
-        height: 45vh;"
-        data-markers="<%= @marker.to_json %>"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-      >
       </div>
 
-      <div class="bookabuoy">
+
+      <div class="card-buoy-map col-sm-12 col-md-12 col-lg-4 col-xl-4">
+        <div class="card-buoy-address">
+          <h2>Your buoy's location:</h2>
+          <p><%= @buoy.address %></p>
+        </div>
+        <div
+          id="map"
+          style="width: 100%;
+          height: 45vh;"
+          data-markers="<%= @marker.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+        >
+        </div>
         <div class="form-container-small d-flex justify-content-around">
           <%= simple_form_for [@buoy, @booking] do |f| %>
             <%= f.input_field :user_id, value: current_user.id, type:"hidden" %>
             <%= f.input_field :buoy_id, value: @buoy.id, type:"hidden" %>
-            <div class="row">
             <%= f.input :start_date, as: :date, html5: true %>
             <%= f.input :end_date, as: :date, html5: true %>
-            </div>
             <%= f.submit "Book it!", class: "btn btn-success" %>
           <% end %>
         </div>
