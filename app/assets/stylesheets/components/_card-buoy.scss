@@ -1,5 +1,6 @@
 .card-buoy-container{
   width: 100%;
+  padding: 10px;
 }
 
 .card-buoy {
@@ -7,41 +8,34 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 24px;
+  padding: 0px;
+  margin: 8px;
+  width: 100%;
 }
 
 .card-buoy > img {
-  height: 90%;
   width: 100%;
   object-fit: cover;
 }
 
-.card-buoy h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.card-buoy p {
+.card-buoy-description {
+  background-color: white;
+  width: 100%;
   font-size: 12px;
-  opacity: .7;
-  margin: 0;
-}
-
-
-.card-buoy .card-buoy-infos {
-  height: 10%;
+  border-radius: 24px;
   padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
-}
-
-.card-buoy-infos .card-buoy-user {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
+  text-align: center;
+  h3 {
+    font-size: 18px;
+  }
+  p {
+    color: rgb(50,50,50);
+    font-size: 14px;
+  }
+  .fas {
+    color: rgb(200, 200, 200);
+    margin-right: 8px;
+  }
 }
 
 .card-buoy-map {
@@ -50,8 +44,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 24px;
   height: 100%;
-  width: 40%;
-  margin-left: 16px;
+  margin: 8px;
   padding: 16px;
 }
 
