@@ -12,6 +12,8 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.start_date = start_date
+    @booking.end_date = end_date
     if @booking.save
       redirect_to bookings_path(@booking)
     else
@@ -42,5 +44,15 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking).permit(:status, :user_id, :buoy_id, :start_date, :end_date)
+  end
+
+  def start_date
+    date = params["booking"]["start_date"].split(' to ')
+    date[0].to_date
+  end
+
+  def end_date
+    date = params["booking"]["start_date"].split(' to ')
+    date[1].to_date
   end
 end
