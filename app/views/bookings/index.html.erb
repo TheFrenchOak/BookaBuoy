@@ -43,6 +43,7 @@
                       <p>Start date: <%= booking.start_date %></p>
                       <p>End date: <%= booking.end_date %></p>
                       <p>Booking ID: <%= booking.id %></p>
+                      <%= link_to "Rate", new_booking_review_path(booking), { class: "btn btn-success"} %>
                   </div>
               </li>
             <% end %>
