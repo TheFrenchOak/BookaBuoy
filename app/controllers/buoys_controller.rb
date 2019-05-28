@@ -51,18 +51,24 @@ class BuoysController < ApplicationController
   end
 
   def update
+    authorize @buoy
+    @buoy.update(buoy_params)
+    redirect_to mybuoys_path
   end
 
   def edit
+    authorize @buoy
   end
 
   def destroy
-    @buoys.destroy
-    redirect_to buoys_path
+    authorize @buoy
+    @buoy.destroy
+    redirect_to mybuoys_path
   end
 
   def mybuoys
-    @mybuoys = policy_scope(Buoy).where(user: current_user)
+    authorize :buoy, :mybuoys?
+    @mybuoys = current_user.buoys
   end
 
   private

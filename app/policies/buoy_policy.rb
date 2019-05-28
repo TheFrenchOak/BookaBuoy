@@ -23,6 +23,10 @@ class BuoyPolicy < ApplicationPolicy
     record.user == user
   end
 
+  def mybuoys?
+    true
+  end
+
   class Scope < Scope
     def resolve
       scope.all
