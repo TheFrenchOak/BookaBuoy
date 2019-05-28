@@ -13,12 +13,16 @@
               <img src="<%= buoy.photo.url %>" alt="mybuoy">
               <div class="description">
                 <h3><%= buoy.name %></h3>
-                <h3><%= buoy.color %></h3>
-                <h3><%= buoy.size %></h3>
-                <h3><%= buoy.category %></h3>
-                <h3><%= buoy.address %></h3>
-                <h3><%= buoy.description %></h3>
-                <h3><%= buoy.price %></h3>
+                <p><%= buoy.color %></p>
+                <p><%= buoy.size %></p>
+                <p><%= buoy.category %></p>
+                <p><%= buoy.address %></p>
+                <p><%= buoy.description %></p>
+                <p><%= buoy.price %> €</p>
+              </div>
+              <div class="buttons d-flex">
+                <%= link_to "Update" , buoy_path(buoy), class: "btn btn-success margin-btn" %>
+                <%= link_to "Delete" , buoy_path(buoy), method: :destroy, class: "btn btn-danger margin-btn" %>
               </div>
             </div>
           <% end %>
