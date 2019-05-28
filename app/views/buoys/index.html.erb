@@ -2,8 +2,26 @@
 
   <div class="home-banner">
     <div>
-    <h2>Bored at the pool ? Don't forget the most important tool!</h2>
-    <h1>Book a Buoy! </h1>
+      <h2>Bored at the pool ? Don't forget the most important tool!</h2>
+      <h1>Book a Buoy! </h1>
+
+      <div class="search-form row justify-content-center">
+        <div class="col-9 pr-0">
+          <%= form_tag buoys_path, method: :get do %>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control input-search",
+              placeholder: "Find a buoy"
+            %>
+        </div>
+        <div class="col-3 pl-0 text-left">
+          <%= submit_tag 'Search', class: "form-submit btn btn-search" %>
+          <% end %>
+        </div>
+      </div>
+
+
+
     </div>
   </div>
 
