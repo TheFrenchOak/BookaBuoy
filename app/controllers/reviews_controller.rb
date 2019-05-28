@@ -12,6 +12,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to @buoy
     else
+      flash[:alert] = "Please fill the review carefully :)"
       render :new
     end
     authorize @review
