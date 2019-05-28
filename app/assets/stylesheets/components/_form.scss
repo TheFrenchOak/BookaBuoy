@@ -39,6 +39,10 @@
     border-radius: 24px;
     margin-bottom: 16px;
   }
+  .stars {
+    display: inline-block;
+    padding-bottom: 5px;
+  }
 }
 
 .form-container-small {
@@ -77,7 +81,7 @@
 
 .search-form {
   width: 600px;
-  margin: 0 auto; 
+  margin: 0 auto;
   .input-search {
     border-top-left-radius: 24px;
     border-bottom-left-radius: 24px;
