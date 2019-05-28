@@ -1,57 +1,84 @@
 <div class="container">
-  <div class="home-owners-bookings">
-    <div class="row">
-      <div class="list-box text-center mt-1 mb-3">
-        <h2 class="caption text-center">Please check out your pending requests!</h2>
-      </div>
-      <div class="card-booking" style="width: 100%;">
-        <div class="" style="width: 100%;">
-          <ul class="list-unstyled">
-            <% @bookings_owner.each do |booking| %>
-              <li>
-                <div class="d-flex align-items-center justify-content-around">
-                  <h2><%= booking.buoy.name %></h2>
-                  <div>
-                    <p>Status: <%= booking.status %></p>
-                  </div>
-                  <div class="buttons d-flex">
-                    <%= link_to "Confirm" , confirm_booking_path(booking), method: :put, class: "btn btn-success margin-btn" %>
-                    <%= link_to "Reject" , reject_booking_path(booking), method: :put, class: "btn btn-danger margin-btn" %>
-                  </div>
-                </div>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    </div>
+
+  <div class="nav row nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+    <a class="col-12 col-md-6 nav-link active" id="v-pills-request-tab" data-toggle="pill" href="#v-pills-request" role="tab" aria-controls="v-pills-request" aria-selected="true">My bookings</a>
+    <a class="col-12 col-md-6 nav-link" id="v-pills-booking-tab" data-toggle="pill" href="#v-pills-booking" role="tab" aria-controls="v-pills-booking" aria-selected="false">My pending requests</a>
   </div>
 
-  <div class="home-renter-bookings">
-    <div class="row">
-      <div class="list-box text-center mt-5 mb-3" style="width: 100%;">
-        <h2 class="caption text-center"> Your own reservations:</h2>
+  <div class="tab-content" id="v-pills-tabContent">
+    <div class="tab-pane fade" id="v-pills-booking" role="tabpanel" aria-labelledby="v-pills-booking-tab">
+      
+      <div class="text-center mt-5 mb-2" style="width: 100%;">
+        <h2>Please check out your pending requests!</h2>
       </div>
-      <div class="card-booking" style="width: 100%;">
-        <div class="" style="width: 100%;">
-          <ul class="list-unstyled">
-            <% @bookings.each do |booking| %>
-              <li>
-                  <div class="d-flex align-items-center justify-content-around">
-                    <h2><%= booking.buoy.name %></h2>
-                      <p>Status: <%= booking.status %></p>
-                      <p>Start date: <%= booking.start_date %></p>
-                      <p>End date: <%= booking.end_date %></p>
-                      <p>Booking ID: <%= booking.id %></p>
-                      <%= link_to "Rate", new_booking_review_path(booking), { class: "btn btn-success"} %>
+
+      <div class="card-booking">
+        <table>
+          <tr>
+            <td>Buoy name</td>
+            <td>Photo</td>
+            <td>Status</td>
+            <td>Start date</td>
+            <td>End date</td>
+          </tr>
+          
+          <tr>
+            
+              <% @bookings_owner.each do |booking| %>
+                
+                  <td><%= booking.buoy.name %></td>
+                  <td><%= cl_image_tag booking.buoy.photo, width: 50, height: 50, crop: :thumb, radius: 'max', gravity: 'auto' %></td>
+                  <td><%= booking.status %></td>
+                  <td><%= booking.start_date %></td>
+                  <td><%= booking.end_date %></td>
+                  <td>
+                    <div class="buttons d-flex">
+                      <%= link_to "Confirm" , confirm_booking_path(booking), method: :put, class: "btn btn-success margin-btn" %>
+                      <%= link_to "Reject" , reject_booking_path(booking), method: :put, class: "btn btn-danger margin-btn" %>
+                    </div>
+                  </td>
                   </div>
-              </li>
-            <% end %>
-          </ul>
-        </div>
+                
+              <% end %>
+            
+          </tr> 
+        </table>
       </div>
     </div>
+
+    <div class="tab-pane fade show active" id="v-pills-request" role="tabpanel" aria-labelledby="v-pills-request-tab">
+    
+      <div class="text-center mt-5 mb-2" style="width: 100%;">
+        <h2> Your own reservations:</h2>
+      </div>
+      <div class="card-booking">
+        <table>
+          <tr>
+            <td>Buoy name</td>
+            <td>Status</td>
+            <td>Start date</td>
+            <td>End date</td>
+            <td>Id</td>
+          </tr>
+          <tr>
+            <% @bookings.each do |booking| %>
+              <td><%= booking.buoy.name %></td>
+              <td><%= booking.status %></td>
+              <td><%= booking.start_date %></td>
+              <td><%= booking.end_date %></td>
+              <td>%= booking.id %></td>
+              <td>
+                <%= link_to "Rate", new_booking_review_path(booking), { class: "btn btn-success"} %>
+              </td>
+            <% end %>
+          </tr> 
+        </table>
+      </div>
+
+    </div>
+
   </div>
+
 </div>
 
 
