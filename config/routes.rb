@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   end
 
   resources :bookings, only: [:index ] do
-    resources :reviews, only: [:new]
+    resources :reviews, only: [:new, :create]
   end
+
   put 'bookings/:id/confirm', to: 'bookings#confirm', as: 'confirm_booking'
   put 'bookings/:id/reject', to: 'bookings#reject', as: 'reject_booking'
 end
