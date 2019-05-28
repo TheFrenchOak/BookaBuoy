@@ -1,6 +1,6 @@
 <div class="container">
   <div class="form-container-large">
-    <h2 class="caption p-3">Add a new buoy to rent:  </h2>
+    <h2 class="caption p-3">Please add all infos regarding the new buoy:  </h2>
       <%= simple_form_for @buoy do |f| %>
         <%= f.input :name %>
         <%= f.input :color %>
@@ -11,7 +11,7 @@
         <%= f.input :address %>
         <%= f.input :description %>
         <%= f.input :photo_cache, as: :hidden %>
-        <%= f.submit "Create a buoy !", class: "btn btn-success" %>
+        <%= f.submit "Let your buoy be booked!", class: "btn btn-success" %>
       <% end %>
   </div>
 </div>

@@ -1,9 +1,7 @@
 <div class="container">
   <h2 class="caption p-3">All you need to know about this buoy, <%= @buoy.name %>:</h2>
-
   <div class="card-buoy-container justify-content-between">
     <div class="row">
-
       <div class="card-buoy col-sm-12 col-md-12 col-lg-7 col-xl-7">
         <%= cl_image_tag @buoy.photo, height: 400, crop: :fill %>
         <div class="card-buoy-description align-items-center">
@@ -13,14 +11,12 @@
             <p><i class="fas fa-ruler-combined"></i><%= @buoy.size  %></p>
             <p><i class="fas fa-tag"></i><%= @buoy.price %>€</p>
           </div>
-          <p>
-            <%= @buoy.description %>
-          </p>
+          <p> <%= @buoy.description %> </p>
         </div>
       </div>
 
       <div class="card-buoy-map col-sm-12 col-md-12 col-lg-4 col-xl-4">
-        <h2 class="caption p-3">Localize the buoy:</h2>
+        <h2 class="caption p-3">Localize & Book the buoy:</h2>
         <div class="card-buoy-address">
           <p><%= @buoy.address %></p>
         </div>
@@ -53,21 +49,24 @@
       <% avg = sum / @reviews.size %>
       <h2 class="caption p-3"> <%= @buoy.name %> is rated
       <% avg.round.times do  %>
-        <%= "<i class=\"fas fa-star\"></i>".html_safe %>
+        <span class="star-full"><%= "<i class='fas fa-star'></i>".html_safe %></span>
       <% end %>
       <% (5 - avg.round).times do  %>
-        <%= "<i class=\"far fa-star\"></i>".html_safe %>
+       <span class="star-empty"> <%= "<i class='far fa-star'></i>".html_safe %></span>
       <% end %>
       <br>Read its reviews:</h2>
-      <div class="row">
         <div class="card-buoy-map col-sm-12 col-md-12 col-lg-7 col-xl-7">
           <% @reviews.each do |review| %>
-            <p> Last user said: <br> <i>" <%= review.content %> "</i> </p>
-            <p> And gave <%= review.rating.to_i %> stars!  </p>
+            <p> <i>" <%= review.content %> "</i> </p>
+            <p>  <% review.rating.round.times do  %>
+              <span class="star-full"> <%= "<i class='fas fa-star'></i>".html_safe %> </span>
+           <% end %>
+      <% (5 - review.rating.round).times do  %>
+       <span class="star-empty"> <%= "<i class='far fa-star'></i>".html_safe %></span>
+      <% end %>  </p>
             <hr>
           <% end %>
         </div>
-      </div>
     <% else %>
       <h2 class="caption p-3"> <%= @buoy.name %> is not rated yet :( </h2>
       <div class="row">
@@ -77,5 +76,4 @@
       </div>
     <% end %>
   </div>
-  <%= link_to "Back to Home Page", buoys_path %>
 </div>
