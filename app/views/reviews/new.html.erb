@@ -1,0 +1,16 @@
+
+<div class="container">
+  <div class="form-container-large">
+    <h2 class="caption pt-3"> Had a good time? Let the world know!</h2>
+      <p>Please take some time to review your booking of XXXXX </p>
+<br>
+
+      <%= simple_form_for @review, url: new_booking_review_path do |f| %>
+        <%= f.text_area :content, label: "Your review:", placeholder: "Did the buoy correspond to its description? Did you have a good experience with the renter? With the buoy?... ", style: "width:100%", rows: 10 %>
+        <%= f.input :rating, collection: Review::RATINGS %>
+
+        <%= f.submit "Thank you for the review!", class: "btn btn-success" %>
+      <% end %>
+  </div>
+  <%= link_to "Back to your Dashboard", bookings_path %>
+</div>
