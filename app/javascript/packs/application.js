@@ -15,3 +15,8 @@ import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 
 import { initAutocomplete } from '../plugins/init_autocomplete';
 initAutocomplete ();
+
+import "../plugins/flatpickr"
+
+import { initStarRating } from '../plugins/init_star_rating';
+initStarRating();

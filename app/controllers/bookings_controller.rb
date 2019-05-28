@@ -11,11 +11,16 @@ class BookingsController < ApplicationController
   end
 
   def create
+    @buoy = Buoy.find(params[:buoy_id])
     @booking = Booking.new(booking_params)
+    @booking.start_date = start_date
+    @booking.end_date = end_date
+    @booking.user = current_user
+    @booking.buoy = @buoy
     if @booking.save
-      redirect_to bookings_path(@booking)
+      redirect_to bookings_path
     else
-      redirect_to buoy_path(Buoy.find_by_id(params[:buoy_id].to_i))
+      render 'buoys/show'
     end
     authorize @booking
   end
@@ -41,6 +46,20 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:status, :user_id, :buoy_id, :start_date, :end_date)
+    params.require(:booking).permit(:status, :start_date, :end_date, :date_range)
+  end
+
+  def start_date
+    date = params["booking"]["start_date"].split(' to ')
+    return nil if date[0].nil?
+
+    date[0].to_date
+  end
+
+  def end_date
+    date = params["booking"]["start_date"].split(' to ')
+    return nil if date[1].nil?
+
+    date[1].to_date
   end
 end

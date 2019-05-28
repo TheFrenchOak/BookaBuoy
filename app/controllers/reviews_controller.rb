@@ -10,8 +10,9 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.booking = @booking
     if @review.save
-      redirect_to @buoy
+      redirect_to buoy_path(@booking.buoy)
     else
+      flash[:alert] = "Please fill the review carefully :)"
       render :new
     end
     authorize @review

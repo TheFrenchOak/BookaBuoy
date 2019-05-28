@@ -5,10 +5,12 @@
       <p>Please take some time to review your booking of XXXXX </p>
 <br>
 
-      <%= simple_form_for @review, url: new_booking_review_path do |f| %>
+      <%= simple_form_for [@booking, @review] do |f| %>
         <%= f.text_area :content, label: "Your review:", placeholder: "Did the buoy correspond to its description? Did you have a good experience with the renter? With the buoy?... ", style: "width:100%", rows: 10 %>
-        <%= f.input :rating, collection: Review::RATINGS %>
-
+        <div class="stars p-2">
+        <%= f.input :rating, collection: (1..5).to_a, label: "Your rating" %>
+        </div>
+          <br>
         <%= f.submit "Thank you for the review!", class: "btn btn-success" %>
       <% end %>
   </div>
