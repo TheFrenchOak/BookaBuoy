@@ -1,10 +1,10 @@
 class BuoysController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
-  before_action :set_buoy, only: [:show]
+  before_action :set_buoy, only: [:show, :edit, :update, :destroy]
   before_action :set_booking, only: [:show]
 
   def index
-    @buoys = policy_scope(Buoy)
+    @buoys = policy_scope(Buoy).where.not(latitude: nil, longitude: nil)
 
     if params[:query].present?
       @buoys = Buoy.search_by_name_description_and_address("%#{params[:query]}%")
@@ -48,6 +48,27 @@ class BuoysController < ApplicationController
         image_url: helpers.asset_url('inflatable.svg')
       }
     ]
+  end
+
+  def update
+    authorize @buoy
+    @buoy.update(buoy_params)
+    redirect_to mybuoys_path
+  end
+
+  def edit
+    authorize @buoy
+  end
+
+  def destroy
+    authorize @buoy
+    @buoy.destroy
+    redirect_to mybuoys_path
+  end
+
+  def mybuoys
+    authorize :buoy, :mybuoys?
+    @mybuoys = current_user.buoys
   end
 
   private

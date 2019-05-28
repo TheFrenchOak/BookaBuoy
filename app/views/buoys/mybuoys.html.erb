@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title> All of my buoys! </title>
+    <meta name="description" content=" Checking out all of my buoys!">
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <div class="container">
+
+      <% @mybuoys.each do |buoy| %>
+        <div class="mybuoy">
+
+          <%= cl_image_tag buoy.photo %>
+          <div class="description">
+            <h3><%= buoy.name %></h3>
+            <p><%= buoy.color %></p>
+            <p><%= buoy.size %></p>
+            <p><%= buoy.category %></p>
+            <p><%= buoy.address %></p>
+            <p><%= buoy.description %></p>
+            <p><%= buoy.price %> €</p>
+          </div>
+          <div class="buttons d-flex">
+            <%= link_to "Update", edit_buoy_path(buoy), class: "btn btn-success margin-btn" %>
+            <% if buoy.bookings.empty? %>
+              <%= link_to "Delete" , buoy_path(buoy), method: :delete, class: "btn btn-danger margin-btn" %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+
+  </body>
+</html>
