@@ -41,6 +41,7 @@ class BuoysController < ApplicationController
 
   def show
     authorize @buoy
+    @reviews = @buoy.reviews
     @marker = [
       {
         lat: @buoy.latitude,

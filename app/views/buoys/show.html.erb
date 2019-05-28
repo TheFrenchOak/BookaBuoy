@@ -1,5 +1,5 @@
 <div class="container">
-  <h2 class="caption p-3">All you need to know about this buoy:</h2>
+  <h2 class="caption p-3">All you need to know about this buoy, <%= @buoy.name %>:</h2>
 
   <div class="card-buoy-container justify-content-between">
     <div class="row">
@@ -19,10 +19,9 @@
         </div>
       </div>
 
-
       <div class="card-buoy-map col-sm-12 col-md-12 col-lg-4 col-xl-4">
+        <h2 class="caption p-3">Localize the buoy:</h2>
         <div class="card-buoy-address">
-          <h2>Your buoy's location:</h2>
           <p><%= @buoy.address %></p>
         </div>
         <div
@@ -45,8 +44,38 @@
     </div>
   </div>
 
-  <div class="reviews p-3">
-    <h2>Reviews</h2>
-    <p> /!\ Coming soon... stay tuned, friends! /!\</p>
+  <div class="reviews">
+    <% sum = 0 %>
+    <% @reviews.each do |review| %>
+      <% sum += review.rating %>
+    <% end %>
+    <% if @reviews.size != 0 %>
+      <% avg = sum / @reviews.size %>
+      <h2 class="caption p-3"> <%= @buoy.name %> is rated
+      <% avg.round.times do  %>
+        <%= "<i class=\"fas fa-star\"></i>".html_safe %>
+      <% end %>
+      <% (5 - avg.round).times do  %>
+        <%= "<i class=\"far fa-star\"></i>".html_safe %>
+      <% end %>
+      <br>Read its reviews:</h2>
+      <div class="row">
+        <div class="card-buoy-map col-sm-12 col-md-12 col-lg-7 col-xl-7">
+          <% @reviews.each do |review| %>
+            <p> Last user said: <br> <i>" <%= review.content %> "</i> </p>
+            <p> And gave <%= review.rating.to_i %> stars!  </p>
+            <hr>
+          <% end %>
+        </div>
+      </div>
+    <% else %>
+      <h2 class="caption p-3"> <%= @buoy.name %> is not rated yet :( </h2>
+      <div class="row">
+        <div class="card-buoy-map col-sm-12 col-md-12 col-lg-7 col-xl-7">
+          <p>Do you want to be the first reviewer for this buoy?</p>
+        </div>
+      </div>
+    <% end %>
   </div>
+  <%= link_to "Back to Home Page", buoys_path %>
 </div>
