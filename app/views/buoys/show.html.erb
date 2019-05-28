@@ -30,9 +30,7 @@
         </div>
         <div class="form-container-small d-flex justify-content-around">
           <%= simple_form_for [@buoy, @booking] do |f| %>
-            <%= f.input_field :user_id, value: current_user.id, type:"hidden" %>
-            <%= f.input_field :buoy_id, value: @buoy.id, type:"hidden" %>
-            <%= f.input :start_date, as: :string,label:false, placeholder:"Choose your dates here !", input_html: { id: "range_start" } %>
+            <%= f.input :start_date, as: :string, label:false, required: true, placeholder:"Choose your dates here !", include_blank: false, input_html: { id: "range_start" } %>
             <%= f.submit "Book it!", class: "btn btn-success" %>
           <% end %>
         </div>
