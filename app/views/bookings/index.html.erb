@@ -9,40 +9,49 @@
     <div class="tab-pane fade" id="v-pills-booking" role="tabpanel" aria-labelledby="v-pills-booking-tab">
       
       <div class="text-center mt-5 mb-2" style="width: 100%;">
-        <h2>Please check out your pending requests!</h2>
+        <h2>You have pending requests to confirm, or not...</h2>
       </div>
 
       <div class="card-booking">
-        <table>
-          <tr>
-            <td>Buoy name</td>
-            <td>Photo</td>
-            <td>Status</td>
-            <td>Start date</td>
-            <td>End date</td>
-          </tr>
-          
-          <tr>
-            
-              <% @bookings_owner.each do |booking| %>
-                
-                  <td><%= booking.buoy.name %></td>
-                  <td><%= cl_image_tag booking.buoy.photo, width: 50, height: 50, crop: :thumb, radius: 'max', gravity: 'auto' %></td>
-                  <td><%= booking.status %></td>
-                  <td><%= booking.start_date %></td>
-                  <td><%= booking.end_date %></td>
-                  <td>
-                    <div class="buttons d-flex">
-                      <%= link_to "Confirm" , confirm_booking_path(booking), method: :put, class: "btn btn-success margin-btn" %>
-                      <%= link_to "Reject" , reject_booking_path(booking), method: :put, class: "btn btn-danger margin-btn" %>
-                    </div>
-                  </td>
+        <% pendings = @bookings.map do |booking| %>
+          <% booking.status == "Pending" %>
+        <% end %>
+        <% if pendings.include?(true) %>
+
+          <table width=100%>
+            <tr class="text-center">
+              <th>Buoy name</th>
+              <th>Photo</th>
+              <th>Status</th>
+              <th>From</th>
+              <th>To</th>
+            </tr>
+            <% @bookings_owner.each do |booking| %>
+              <tr class="text-center">
+                <td><%= booking.buoy.name %></td>
+                <td><%= cl_image_tag booking.buoy.photo, width: 50, height: 50, crop: :thumb, radius: 'max', gravity: 'auto' %></td>
+                <td><%= booking.status %></td>
+                <td><%= booking.start_date %></td>
+                <td><%= booking.end_date %></td>
+                <td>
+                  <div class="d-flex justify-content-center">
+                    <%= link_to "Confirm" , confirm_booking_path(booking), method: :put, class: "btn btn-success margin-btn btn-radius" %>
+                    <%= link_to "Reject" , reject_booking_path(booking), method: :put, class: "btn btn-danger btn-radius" %>
                   </div>
-                
-              <% end %>
-            
-          </tr> 
-        </table>
+                </td>
+                </div> 
+              </tr> 
+            <% end %> 
+          </table>
+
+        <% else %>
+          <div class="text-center w-100">
+            <p><i>Oops, you don't have any request for the moment...</i></p>
+            <p><i>Don't hesitate to add more buoys!</i></p>
+            <%= link_to "Add a&nbsp;&nbsp;<i class='far fa-life-ring'></i>".html_safe, new_buoy_path, class: "btn btn-success btn-radius" %>
+          </div>
+        <% end %>
+
       </div>
     </div>
 
@@ -52,26 +61,28 @@
         <h2> Your own reservations:</h2>
       </div>
       <div class="card-booking">
-        <table>
-          <tr>
-            <td>Buoy name</td>
-            <td>Status</td>
-            <td>Start date</td>
-            <td>End date</td>
-            <td>Id</td>
+        <table width=100%>
+          <tr class="text-center">
+            <th>Buoy name</th>
+            <th>Photo</th>
+            <th>Status</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Id</th>
           </tr>
-          <tr>
             <% @bookings.each do |booking| %>
-              <td><%= booking.buoy.name %></td>
-              <td><%= booking.status %></td>
-              <td><%= booking.start_date %></td>
-              <td><%= booking.end_date %></td>
-              <td>%= booking.id %></td>
-              <td>
-                <%= link_to "Rate", new_booking_review_path(booking), { class: "btn btn-success"} %>
-              </td>
+              <tr class="text-center">
+                <td><%= booking.buoy.name %></td>
+                <td><%= cl_image_tag booking.buoy.photo, width: 50, height: 50, crop: :thumb, radius: 'max', gravity: 'auto' %></td>
+                <td><%= booking.status %></td>
+                <td><%= booking.start_date %></td>
+                <td><%= booking.end_date %></td>
+                <td><%= booking.id %></td>
+                <td>
+                <%= link_to "Rate", new_booking_review_path(booking), { class: "btn btn-success btn-radius"} %>
+                </td>
+              </tr> 
             <% end %>
-          </tr> 
         </table>
       </div>
 
