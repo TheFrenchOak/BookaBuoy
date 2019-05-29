@@ -1,1 +1,2 @@
-document.getElementById("request-<%= @booking.id %>").remove();
+var bookingTable = document.getElementById("table-request");
+  bookingTable.innerHTML = '<%= j render 'bookings/table_bookings', bookings_owner: @bookings_owner %>'
