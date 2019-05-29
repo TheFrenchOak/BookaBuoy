@@ -66,8 +66,8 @@
         <% if @bookings.empty? %>
           <div class="text-center w-100">
             <p><i>Oops, you don't have any reservation for the moment...</i></p>
-            <p><i>Don't hesitate to add betters descriptions to your buoys!</i></p>
-            <%= link_to "See my&nbsp;&nbsp;<i class='far fa-life-ring'></i>".html_safe, mybuoys_path, class: "btn btn-success btn-radius" %>
+            <p><i>Don't hesitate to take a look at our buoys!</i></p>
+            <%= link_to "See all &nbsp;&nbsp;<i class='far fa-life-ring'></i>".html_safe, buoys_path, class: "btn btn-success btn-radius" %>
           </div>
         <% else %>
           <table width=100%>
