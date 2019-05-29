@@ -26,7 +26,7 @@
                     <button class="btn-book btn btn-success btn-radius">Update</button>
                   <% end %>
                   <% if buoy.bookings.empty? %>
-                    <%= link_to buoy_path(buoy), method: :delete do %>
+                    <%= link_to buoy_path(buoy), method: :delete, :data => {:confirm => 'Are you sure?'} do %>
                       <button class="btn-book btn btn-danger btn-radius">Delete</button>
                     <% end %>
                   <% end %>
