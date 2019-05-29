@@ -27,14 +27,16 @@ class BookingsController < ApplicationController
 
   def confirm
     @booking.status = 'Confirmed'
-    @booking.save
     authorize @booking
+    @booking.save
+    @bookings_owner = BookingPolicy::Scope.new(current_user, Booking).owner
   end
 
   def reject
     @booking.status = 'Rejected'
     authorize @booking
     @booking.save
+    @bookings_owner = BookingPolicy::Scope.new(current_user, Booking).owner
   end
 
   private
