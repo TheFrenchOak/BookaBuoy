@@ -17,6 +17,7 @@ class BookingsController < ApplicationController
     @booking.end_date = end_date
     @booking.user = current_user
     @booking.buoy = @buoy
+    @reviews = Review.all
     if @booking.save
       redirect_to bookings_path
     else
