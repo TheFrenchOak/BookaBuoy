@@ -18,7 +18,7 @@
         <% end %>
         <% if pendings.include?(true) %>
 
-          <table width=100%>
+          <table width=100% id="table-request">
             <tr class="text-center">
               <th>Buoy name</th>
               <th>Photo</th>
@@ -27,8 +27,8 @@
               <th>To</th>
               <th>Price</th>
             </tr>
-            <% @bookings_owner.each do |booking| %>
-              <tr class="text-center">
+            <% @bookings_owner.select{ |booking| booking.status == "Pending" }.each do |booking| %>
+              <tr class="text-center" id="request-<%= booking.id %>">
                 <td><%= booking.buoy.name %></td>
                 <td><%= cl_image_tag booking.buoy.photo, width: 50, height: 50, crop: :thumb, radius: 'max', gravity: 'auto' %></td>
                 <td><%= booking.status %></td>
@@ -37,13 +37,29 @@
                 <td><%= (booking.end_date - booking.start_date).to_i * booking.buoy.price %>,00 €</td>
                 <td>
                   <div class="d-flex justify-content-center">
-                    <%= link_to "Confirm" , confirm_booking_path(booking), method: :put, class: "btn btn-success margin-btn btn-radius" %>
-                    <%= link_to "Reject" , reject_booking_path(booking), method: :put, class: "btn btn-danger btn-radius" %>
+                    <%= link_to "Confirm" , confirm_booking_path(booking), method: :put, remote: true, class: "btn btn-success margin-btn btn-radius", id:"confirm" %>
+                    <%= link_to "Reject" , reject_booking_path(booking), method: :put, remote: true, class: "btn btn-danger btn-radius", id:"reject" %>
                   </div>
                 </td>
                 </div> 
               </tr> 
-            <% end %> 
+            <% end %>
+            <% @bookings_owner.reject{ |booking| booking.status == "Pending" }.each do |booking| %>
+              <tr class="text-center text-secondary table-grey" id="request-<%= booking.id %>">
+                <td><%= booking.buoy.name %></td>
+                <td><%= cl_image_tag booking.buoy.photo, width: 50, height: 50, crop: :thumb, radius: 'max', gravity: 'auto' %></td>
+                <td><%= booking.status %></td>
+                <td><%= booking.start_date %></td>
+                <td><%= booking.end_date %></td>
+                <td><%= (booking.end_date - booking.start_date).to_i * booking.buoy.price %>,00 €</td>
+                <% if booking.status == "Confirmed" %>
+                  <td> <i class="fas fa-check"></i> <%= booking.status %></td>  
+                <% else %>
+                  <td> <i class="fas fa-times"></i> <%= booking.status %></td>
+                <% end %>
+                </div> 
+              </tr> 
+            <% end %>  
           </table>
 
         <% else %>

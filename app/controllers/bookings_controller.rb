@@ -26,17 +26,15 @@ class BookingsController < ApplicationController
   end
 
   def confirm
-    @booking.status = 'confirmed'
+    @booking.status = 'Confirmed'
     @booking.save
     authorize @booking
-    redirect_to bookings_path
   end
 
   def reject
-    @booking.status = 'rejected'
+    @booking.status = 'Rejected'
     authorize @booking
     @booking.save
-    redirect_to bookings_path
   end
 
   private
