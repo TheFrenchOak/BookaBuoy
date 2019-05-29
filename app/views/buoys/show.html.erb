@@ -4,6 +4,11 @@
     <div class="row">
       <div class="card-buoy col-sm-12 col-md-12 col-lg-7 col-xl-7">
         <%= cl_image_tag @buoy.photo, height: 400, crop: :fill %>
+          <% if @buoy.user == current_user %>
+                <div id="owner-tag">
+                    <i class="fas fa-crown"></i> Me
+                </div>
+              <% end %>
         <div class="card-buoy-description align-items-center">
           <h3><%= @buoy.name  %></h3>
           <div class="d-flex justify-content-around">
