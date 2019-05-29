@@ -5,31 +5,37 @@
     <meta charset="utf-8">
   </head>
   <body>
-    <div class="container">
-
-      <% @mybuoys.each do |buoy| %>
-        <div class="mybuoy">
-
-          <%= cl_image_tag buoy.photo %>
-          <div class="description">
-            <h3><%= buoy.name %></h3>
-            <p><%= buoy.color %></p>
-            <p><%= buoy.size %></p>
-            <p><%= buoy.category %></p>
-            <p><%= buoy.address %></p>
-            <p><%= buoy.description %></p>
-            <p><%= buoy.price %> €</p>
+    <div class="container pt-6">
+      <div class="row">
+        <% @mybuoys.each do |buoy| %>
+          <div class="col-12 col-lg-4 col-md-6 col-sm-12">
+            <div class="card-product" style="background-image: url('<%= cl_image_path buoy.photo, height: 300, width: 400, crop: :fill %>')">
+              <div class="card-product-description">
+                <h3><%= buoy.name %></h3>
+                <h5><%= truncate(buoy.description, length: 40) %></h5>
+                <div class="d-flex justify-content-around">
+                  <p><i class="fas fa-paperclip"></i><%= buoy.category %></p>
+                  <p><i class="fas fa-ruler-combined"></i><%= buoy.size %></p>
+                  <p><i class="fas fa-tag"></i><%= buoy.price %>€</p>
+                </div>
+                <p>
+                  <%= buoy.address.split(',')[1] %>
+                </p>
+                <div class = "d-flex justify-content-around">
+                  <%= link_to edit_buoy_path(buoy) do %>
+                    <button class="btn-book btn btn-success btn-radius">Update</button>
+                  <% end %>
+                  <% if buoy.bookings.empty? %>
+                    <%= link_to buoy_path(buoy), method: :delete do %>
+                      <button class="btn-book btn btn-danger btn-radius">Delete</button>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="buttons d-flex">
-            <%= link_to "Update", edit_buoy_path(buoy), class: "btn btn-success margin-btn" %>
-            <% if buoy.bookings.empty? %>
-              <%= link_to "Delete" , buoy_path(buoy), method: :delete, class: "btn btn-danger margin-btn" %>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
-
+        <% end %>
+      </div>
     </div>
-
   </body>
 </html>
