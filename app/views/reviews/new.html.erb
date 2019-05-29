@@ -2,7 +2,7 @@
 <div class="container">
   <div class="form-container-large">
     <h2 class="caption pt-3"> Had a good time? Let the world know!</h2>
-      <p>Please take some time to review your booking of XXXXX </p>
+      <p>Please take some time to review your booking of <%= @buoy.name %> </p>
 <br>
 
       <%= simple_form_for [@booking, @review] do |f| %>
@@ -13,6 +13,6 @@
           <br>
         <%= f.submit "Thank you for the review!", class: "btn btn-success" %>
       <% end %>
+      <span class="btn btn-back btn-outline-primary"> <%= link_to "Back to <i class='far fa-life-ring'></i>".html_safe, bookings_path %> </span>
   </div>
-  <span> <%= link_to "Back to your Dashboard", bookings_path %> </span>
 </div>
