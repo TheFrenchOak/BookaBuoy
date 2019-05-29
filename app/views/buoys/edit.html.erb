@@ -1,17 +1,20 @@
-<div class="update-mybuoys justify-content-center">
-<%= simple_form_for @buoy do |f| %>
-        <%= f.input :name %>
-        <%= f.input :color %>
-        <%= f.input :size, collection: Buoy::SIZE %>
-        <%= f.input :category, collection: Buoy::CATEGORY %>
-        <div class="update-image">
-          <%= cl_image_tag @buoy.photo %>
-          <%= f.input :photo %>
-        </div>
+<div class="container">
+  <div class="form-container-large">
+    <h2 class="caption p-3">Modify your buoy right here :  </h2>
+    <%= simple_form_for @buoy do |f| %>
+      <%= f.input :name %>
+      <%= f.input :color %>
+      <%= f.input :size, collection: Buoy::SIZE %>
+      <%= f.input :category, collection: Buoy::CATEGORY %>
+      <div class="update-image">
+        <%= cl_image_tag @buoy.photo %>
+        <%= f.input :photo %>
+      </div>
         <%= f.input :price %>
         <%= f.input :address %>
         <%= f.input :description %>
         <%= f.input :photo_cache, as: :hidden %>
         <%= f.submit "Update a buoy !", class: "btn btn-success" %>
       <% end %>
+  </div>
 </div>
