@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
+    @buoy = @booking.buoy
     authorize @review
   end
 

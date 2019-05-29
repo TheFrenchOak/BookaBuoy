@@ -52,8 +52,9 @@
       <% (5 - avg.round).times do  %>
        <span class="star-empty"> <%= "<i class='far fa-star'></i>".html_safe %></span>
       <% end %>
-      <br>Read its reviews:</h2>
+      <br></h2>
         <div class="card-buoy-map col-sm-12 col-md-12 col-lg-7 col-xl-7">
+          <h2>What other users said:</h2>
           <% @reviews.each do |review| %>
             <p> <i>" <%= review.content %> "</i> </p>
             <p>  <% review.rating.round.times do  %>
