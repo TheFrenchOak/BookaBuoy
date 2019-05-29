@@ -12,7 +12,7 @@
             <div class="card-product" style="background-image: url('<%= cl_image_path buoy.photo, height: 300, width: 400, crop: :fill %>')">
               <div class="card-product-description">
                 <h3><%= buoy.name %></h3>
-                <h5><%= truncate(buoy.description, length: 40) %></h5>
+                <h5><%= truncate(buoy.description, length: 30) %></h5>
                 <div class="d-flex justify-content-around">
                   <p><i class="fas fa-paperclip"></i><%= buoy.category %></p>
                   <p><i class="fas fa-ruler-combined"></i><%= buoy.size %></p>
