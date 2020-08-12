@@ -11,7 +11,7 @@
     "mapbox-gl": "^1.0.0",
     "places.js": "^1.16.4",
     "popper.js": "^1.15.0",
-    "serialize-javascript": "^2.1.1"
+    "serialize-javascript": "^3.1.0"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.4.1"
