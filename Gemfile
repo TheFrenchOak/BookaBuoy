@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
-ruby '2.5.3'
+ruby '3.0.0'
 
 gem 'bootsnap', require: false
 gem 'devise'
 gem 'jbuilder', '~> 2.0'
-gem 'pg', '~> 0.21'
+gem 'pg'
 gem 'puma'
-gem 'rails', '5.2.3'
+gem 'rails', '~> 6.0'
 gem 'redis'
 
 gem 'autoprefixer-rails'
@@ -15,6 +15,7 @@ gem 'cloudinary', '~> 1.9.1'
 gem 'faker'
 gem 'font-awesome-sass', '~> 5.6.1'
 gem 'geocoder'
+gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
 gem 'pg_search'
 gem 'pundit'
 gem 'sassc-rails'
